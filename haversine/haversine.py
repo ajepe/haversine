@@ -15,7 +15,7 @@ class Haversine(object):
     """This uses the ‘haversine’ formula to calculate the great-circle
     distance between two points – that is, the shortest distance over
     the earth’s surface.
-    
+
     Giving an 'as-the-crow-flies' distance between the points 
     (ignoring any hills they fly over, of course!).
     """
@@ -24,16 +24,26 @@ class Haversine(object):
         """."""
         self.EARTH_RADIUS = radius
 
-    def _point_a(self, latitude, longitude):
-        return latitude, longitude
+    @property
+    def get_location_a(self) -> tuple:
+        return self.LOCATION_ONE
 
-    def point_b(self, latitude, longitude):
-        return latitude, longitude
+    property
 
-    def distance(self, point_a, point_b):
-        location1 = point_b
-        location2 = point_a 
-        return self._calculate_distance(location1, location2)
+    def get_location_b(self) -> tuple:
+        return self.LOCATION_TWO
+
+    def distance(self, point_a: tuple, point_b: tuple) -> float:
+        """Public api for haversine formula."""
+        if not (isinstance(point_a, tuple) and isinstance(point_b, tuple)):
+            raise TypeError(
+                """Expect point_a and point_b to be <class "tuple">, {} and {} were given""".format(
+                    type(point_a), type(point_b)
+                )
+            )
+        self.LOCATION_ONE = point_b
+        self.LOCATION_TWO = point_a
+        return self._calculate_distance(self.LOCATION_ONE, self.LOCATION_TWO)
 
     def _calculate_distance(self, pointA, pointB):
 

@@ -2,6 +2,7 @@ language: python
 python:
   - "3.5"
   - "3.6"
+  - "3.7-dev"
 # command to install dependencies
 # install:
   # - pip install -r requirements.txt
@@ -9,4 +10,12 @@ python:
 script:
   - python -m unittest discover -v
 
-# 
+deploy:
+  provider: pypi
+  user: "ajepe"
+  password:
+    secure: HUOIEm2Qxc4JUSFwnRJPjH7WFxg8qYQ6Pdc/1dBPnBgFH2tRkAGXJahkBfN5d9VPI+1SNf9GvTqCVGiWM9MvuPevjxGgGRVXnTt5G6Mq9bgB0O1TPj1G/hnD5U/Ce4NW0CVteoHEIetlQmRBbfa6j2+20VFEHOgZJFOl8llbob+4NxSYc8OlN27JQ9bW0Mum2hQUfrmOPnSmwyR+/v7scMxwiXuh/K2IfMYBqdo+G5yBbE2yFRSSD/bd+h0ZnvGig9IrcABKQKhGLM4WGvmou7tcqBX8P2JQ0VbjFvQm8U7UAHCZFuhx+1VYUAUrf0HM46gS8bV08hzkNOlwoAXDvE7e03cEMVNa+/uemmF3Hx+xAJBNhIA3NJWnGc/tOHWtQJtXrwdevDuNvuzt/GrlZIdWK2bvQg+olacAHLcqVQT3IgaxXNj6F0xHapXTWGeRzvd0iNMGSRYXhQ8g5rFfrA1K2yCSWxk2TQuNi56jkh1FcmjnkUw1jpK06/zF+/yoKJKd6knGoTbo+G3kdRYJMulsxWMcMpF57fnun+++UQK9RcDdG7bqPbt9rvcf9SjpPzTFuf2axP4o0/uw2N3dz8Gvfz4I54dvAhU7MRiRMiVZTV7el8xJt44X8wP5+560SpenIxvS5FAi6h8+XBj+LukAEgPycByHIN6f2t3d9GY=
+  on:
+    branch: master
+
+

@@ -9,7 +9,7 @@ setuptools.setup(
     author="Babatope Ajepe",
     author_email="babatopeajepe@gmail.com",
     description="""Python implementation of haversine formula to determine the
-    great-circle distance between two points on a sphere given their 
+    great-circle distance between two points on a given sphere using
     longitudes and latitudes.""",
     long_description=long_description,
     long_description_content_type="text/markdown",
